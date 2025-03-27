@@ -25,7 +25,7 @@ function Home() {
     }
 
     try {
-      await axios.post("http://localhost:3002/itemInserting", property);
+      await axios.post("https://backendtodo-deb8.onrender.com/itemInserting", property);
 
       Swal.fire({
         icon: "success",
@@ -70,7 +70,7 @@ function List() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get("http://localhost:3002/itemInserting");
+        const response = await axios.get("https://backendtodo-deb8.onrender.com/itemInserting");
         console.log("Fetched tasks:", response.data);
         setTasks(response.data);
       } catch (error) {
@@ -83,7 +83,7 @@ function List() {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:3002/itemInserting/${id}`);
+      const response = await axios.delete(`https://backendtodo-deb8.onrender.com/itemInserting/${id}`);
       if (response.status === 200) {
         setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
         Swal.fire({
@@ -111,7 +111,7 @@ function List() {
     if (!newText) return;
   
     try {
-      const response = await axios.put(`http://localhost:3002/itemInserting/${id}`, {
+      const response = await axios.put(`https://backendtodo-deb8.onrender.com/itemInserting/${id}`, {
         title: newText,
       });
   
